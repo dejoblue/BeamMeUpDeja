@@ -1,0 +1,9 @@
+## Interface: 70200
+## Version: 720r103
+## Title: BeamMeUpDeja
+## Authors: Dejablue, Kakjens, Syncrow, Fizzlemizz
+## Notes: Dejablue's simple Sentinax Beacon controller.
+## SavedVariables: BeamMeUpDejaDB
+## SavedVariablesPerCharacter: BeamMeUpDejaDBPC
+
+BeamMeUpDeja.lua
