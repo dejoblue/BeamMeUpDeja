@@ -636,7 +636,7 @@ local LWSuppliesFSTexture=LWSuppliesIconFrame:CreateTexture(nil,"ARTWORK")
 				
 				BMUDRarity = quality
 				if (itemID == 147729) or (itemID == 147355) or (itemID == 146923) or (itemID == 146922) then BMUDRarity = 5 end
-	
+				BMUDRarityTable[BMUDRarity] = 1
 				if count then
 					totalCount = totalCount + count
 				end
@@ -683,12 +683,12 @@ local LWSuppliesFSTexture=LWSuppliesIconFrame:CreateTexture(nil,"ARTWORK")
 				for slot = 1, GetContainerNumSlots(bag) do
 					local itemID = GetContainerItemID(bag, slot)
 					if SEARCHED_ITEMS[itemID] then
-						local _,_,_, quality = GetContainerItemInfo(bag, slot)
+						--local _,_,_, quality = GetContainerItemInfo(bag, slot)
 						--print(quality)--Debugging
 
-						BMUDRarity = quality
-						if (itemID == 147729) or (itemID == 147355) or (itemID == 146923) or (itemID == 146922) then BMUDRarity = 5 end
-						BMUDRarityTable[BMUDRarity] = 1
+						--BMUDRarity = quality
+						--if (itemID == 147729) or (itemID == 147355) or (itemID == 146923) or (itemID == 146922) then BMUDRarity = 5 end
+						--BMUDRarityTable[BMUDRarity] = 1
 						--print(BMUDRarityTable[BMUDRarity])
 
 						-- beacon found!!!
