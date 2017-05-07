@@ -637,6 +637,9 @@ local LWSuppliesFSTexture=LWSuppliesIconFrame:CreateTexture(nil,"ARTWORK")
 				BMUDRarity = quality
 				if (itemID == 147729) or (itemID == 147355) or (itemID == 146923) or (itemID == 146922) then BMUDRarity = 5 end
 	
+				
+				BMUDRarity = BMUDRarity - 1
+				
 				if count then
 					totalCount = totalCount + count
 				end
@@ -688,6 +691,11 @@ local LWSuppliesFSTexture=LWSuppliesIconFrame:CreateTexture(nil,"ARTWORK")
 
 						BMUDRarity = quality
 						if (itemID == 147729) or (itemID == 147355) or (itemID == 146923) or (itemID == 146922) then BMUDRarity = 5 end
+						
+						
+						
+						BMUDRarity = BMUDRarity - 1
+						
 						BMUDRarityTable[BMUDRarity] = 1
 						--print(BMUDRarityTable[BMUDRarity])
 
@@ -708,30 +716,30 @@ local LWSuppliesFSTexture=LWSuppliesIconFrame:CreateTexture(nil,"ARTWORK")
 				end
 			end
 		end
-		 
+		local button_padding = (buttonSize + padding)
 		local function UpdateAllButtons(self)
 			local bmudtable = self.beacons
 			local BMUDIndexes = {}
 			
-			for i = 1, 5 do
+			for i = 1, 4 do
 				BMUDIndexes[i] = 0
 			end
 
 			local BMUDFalseRarityTable = {}
 
-			for i = 1, 5 do
+			for i = 1, 4 do
 				if  not BMUDRarityTable[i] then BMUDRarityTable[i] = 0 end
 			end
 
-			for i = 1, 5 do
-				local sum = -1
+			for i = 1, 4 do
+				local sum = 0 --modify this if wrong position
 				for i = 1, i do
 					sum = sum + BMUDRarityTable[i]
 				end
 				BMUDFalseRarityTable[i] = sum
 			end
 		
-			local button_padding = (buttonSize + padding)
+			
 			
 			for _, button in pairs(bmudtable) do
 				if button then
