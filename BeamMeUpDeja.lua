@@ -49,6 +49,15 @@ local SEARCHED_ITEMS = {
     [146903] = "",	-- Dominance
 }
 
+local NETHER_CRAFTING = {
+	--Other
+    [147729] = "",	-- Netherchunk
+	-- Crafting Rares
+	[147355] = "",	-- Bloodstrike
+	[146923] = "",	-- Petrification
+	[146922] = "",	-- Fel growth
+}
+
 local loader = CreateFrame("Frame")
 	loader:RegisterEvent("ADDON_LOADED")
 	loader:SetScript("OnEvent", function(self, event, arg1)
@@ -68,6 +77,10 @@ local loader = CreateFrame("Frame")
 
 		BeamMeUpDejaDBPC = initDB(BeamMeUpDejaDBPC, private.defaults)
 		private.db = BeamMeUpDejaDBPC -- add this
+		--it would be interesting to put
+		--SEARCHED_ITEMS = initDB(SEARCHED_ITEMS, NETHER_CRAFTING)
+		--with SEARCHED_ITEMS modified to have no NETHER_CRAFTING items
+		
 		self:UnregisterEvent("ADDON_LOADED")
 		-- Don't place any frames here
 		end
@@ -635,7 +648,8 @@ local LWSuppliesFSTexture=LWSuppliesIconFrame:CreateTexture(nil,"ARTWORK")
 				--print(icon, count, quality, link, itemID )--Debugging
 				
 				BMUDRarity = quality
-				if (itemID == 147729) or (itemID == 147355) or (itemID == 146923) or (itemID == 146922) then BMUDRarity = 5 end
+				--if (itemID == 147729) or (itemID == 147355) or (itemID == 146923) or (itemID == 146922) then BMUDRarity = 5 end
+				if NETHER_CRAFTING[itemID] then BMUDRarity = 5 end
 	
 				if count then
 					totalCount = totalCount + count
@@ -687,7 +701,8 @@ local LWSuppliesFSTexture=LWSuppliesIconFrame:CreateTexture(nil,"ARTWORK")
 						--print(quality)--Debugging
 
 						BMUDRarity = quality
-						if (itemID == 147729) or (itemID == 147355) or (itemID == 146923) or (itemID == 146922) then BMUDRarity = 5 end
+						--if (itemID == 147729) or (itemID == 147355) or (itemID == 146923) or (itemID == 146922) then BMUDRarity = 5 end
+						if NETHER_CRAFTING[itemID] then BMUDRarity = 5 end
 						BMUDRarityTable[BMUDRarity] = 1
 						--print(BMUDRarityTable[BMUDRarity])
 
